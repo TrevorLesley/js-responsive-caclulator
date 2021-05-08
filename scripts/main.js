@@ -6,11 +6,12 @@
 //     window.alert
 // }
 
-// Defining the pushNumber function to select all numbers,
-// also adding event listener to the function.
+// Defining the push-button functions and attaching event listeners.
 
 const $numberButtons = document.querySelectorAll('.number');
 const $operatorButtons = document.querySelectorAll('.operator');
+const $equalSign = document.querySelector('.equal-sign');
+
 
 function pushNumber(event) {
     alert(event.target.value);
@@ -28,3 +29,10 @@ $operatorButtons.forEach(function (button) {
     button.addEventListener('click', pushOperator);
 });
 
+function calculate(event) {
+    alert(event.target.value);
+}
+
+$equalSign.for(function (button) {
+    button.addEventListener('click', calculate);
+});
