@@ -25,9 +25,9 @@ var newEquation = [];
 function pushNumber(event) {
     // alert(event.target.value);
     console.log(event.target.value);
-    document.querySelector('.calculator-screen').value = event.target.value
+    document.querySelector('.calculator-screen').value = event.target.value;
     calculation.push(event.target.value);
-    console.log(calculation)
+    console.log(calculation);
     // console.log(typeof (event.target.value));
 
 }
@@ -51,9 +51,29 @@ $operatorButtons.forEach(function (button) {
 });
 
 let calculate = function (event) {
-
+    // console.log(firstNumber, secondNumber)
     sign = this.value
+
+    function strToInt(calculation) {
+        let actualMath = '';
+        console.log(calculation)
+
+        calculation.split('').forEach(function (calculation) {
+            if ('1234567890'.includes(calculation)) {
+                console.log(calculation);
+                parseInt(calculation);
+                console.log(typeof calculation)
+                console.log(parseInt(calculation));
+            } else {
+                return calculation;
+            }
+        });
+    }
+
+    strToInt(calculation)
+
     if (sign === '+') {
+
         result = firstNumber + secondNumber
         $calculatorScreen.value = result;
     }
@@ -70,12 +90,10 @@ let calculate = function (event) {
         result = firstNumber / secondNumber
         $calculatorScreen.value = result;
     }
-    // var toInt = parseInt(button);
 }
 $equalSign.addEventListener('click', function () {
-
     calculate();
-})
+});
 
 // function positiveNegative(event) {
 //     // alert(event.target.value);
@@ -107,15 +125,13 @@ $clear.addEventListener('click', clear);
 
 
 
-// function rovarspraket(text) {
-//     let translation = '';
+// function strToInt(calculation) {
+//     let actualMath = '';
 
-//     text.toLowerCase().split('').forEach(function (char) {
-//       if ('bcdfghjklmnpqrstvwxyz'.includes(char)) {
-//         translation += char + 'o' + char;
-//       } else {
-//         translation += char;
-//       }
+//     calculation.split('').forEach(function (????) {
+
+        // for loop for item in the array concat it into string actual math
+//       
 //     });
 
 //     return translation;
