@@ -51,7 +51,7 @@ $operatorButtons.forEach(function (button) {
 });
 
 let calculate = function (event) {
-    // console.log(firstNumber, secondNumber)
+
     sign = this.value
 
     function strToInt(calculation) {
@@ -71,25 +71,6 @@ let calculate = function (event) {
     }
 
     strToInt(calculation)
-
-    if (sign === '+') {
-
-        result = firstNumber + secondNumber
-        $calculatorScreen.value = result;
-    }
-    else if (sign === '-') {
-        result = firstNumber - secondNumber
-        $calculatorScreen.value = result;
-    }
-    else if (sign === '*') {
-        result = firstNumber * secondNumber
-        $calculatorScreen.value = result;
-    }
-
-    else if (sign === '/') {
-        result = firstNumber / secondNumber
-        $calculatorScreen.value = result;
-    }
 }
 $equalSign.addEventListener('click', function () {
     calculate();
@@ -122,18 +103,3 @@ let clear = function (event) {
 
 $clear.addEventListener('click', clear);
 
-
-
-
-// function strToInt(calculation) {
-//     let actualMath = '';
-
-//     calculation.split('').forEach(function (????) {
-
-        // for loop for item in the array concat it into string actual math
-//       
-//     });
-
-//     return translation;
-//   }
-//   rovarspraket("this is fun");
