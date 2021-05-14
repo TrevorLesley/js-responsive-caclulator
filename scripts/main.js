@@ -16,9 +16,10 @@ const $decimal = document.querySelector('.decimal');
 const $plusMinus = document.querySelector('.plus-minus');
 const $percent = document.querySelector('.percent');
 const $numberbtlg = document.querySelector('.number btn-lg');
-let $calculatorScreen = document.querySelector('.calculator-screen');
+const $calculatorScreen = document.querySelector('.calculator-screen');
 var calculation = [];
 var newEquation = [];
+var calcString = [];
 // console.log($calculatorScreen);
 
 
@@ -50,45 +51,44 @@ $operatorButtons.forEach(function (button) {
     button.addEventListener('click', pushOperator);
 });
 
-let calculate = function (event) {
+function calculate(calculation) {
+    let stringNum1 = '', stringNum2 = '', operator = '';
+    // let num1 = [], num2 = [];
+    for (i = 0; i < calculation.length; i++) {
+        if (calculation[i] === 'number') {
+            calculation.push(stringNum1);
+        } else if (calculation[i] === operator) {
+            calculation.push(operator);
+        } else if (calculation.indexOf[i] > operator.indexOf[i]) {
+            calculation.push(stringNum2);
+        }
+    };
+    stringNum1
+        .join()
+        .parseInt();
 
-    sign = this.value
+    stringNum2
+        .join()
+        .parseInt();
 
-    function strToInt(calculation) {
-        let actualMath = '';
-        console.log(calculation)
-
-        calculation.split('').forEach(function (calculation) {
-            if ('1234567890'.includes(calculation)) {
-                console.log(calculation);
-                parseInt(calculation);
-                console.log(typeof calculation)
-                console.log(parseInt(calculation));
-            } else {
-                return calculation;
-            }
-        });
+    if (operator == '+') {
+        console.log(stringNum1 + stringNum2);
+    } else if (operator == '-') {
+        console.log(stringNum1 - stringNum2);
+    } else if (operator == '*') {
+        console.log(stringNum1 * stringNum2);
+    } else if (operator == '/') {
+        console.log(stringNum1 / stringNum2);
     }
 
-    strToInt(calculation)
-}
-$equalSign.addEventListener('click', function () {
-    calculate();
-});
+    $equalSign.forEach(function (button) {
+        button.addEventListener('click', calculate);
+    });
+};
 
-// function positiveNegative(event) {
-//     // alert(event.target.value);
-//     console.log(event.target.value);
-//     // toggle
-//     var currentNumber = (event.target.value);
-//     console.log(currentNumber);
-//     document.querySelector('.calculator-screen').value = target.value;
-//     let x = 54;
-//     let y = -54;
-//     let resultx = -(x);
-//     let resulty = -(y);
-// }
 
+
+// calculate(calculation);
 
 //  Clear button.
 
@@ -96,7 +96,6 @@ let clear = function (event) {
 
     calculation = [];
     newEquation = [];
-
 
     $calculatorScreen.value = "0";
 };
